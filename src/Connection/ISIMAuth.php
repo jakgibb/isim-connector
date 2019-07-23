@@ -224,7 +224,6 @@ class ISIMAuth {
                     ->addHeader('Cookie', $this->token['ltpa2'] . ";" . $this->token['jsession'])
                     ->send();
                 if($response->code == "200"){
-                    $this->logger->debug("Previous ISIM session is still valid");
                     $this->token['csrf'] = $response->headers['CSRFToken'];
                     return TRUE;
                 }
